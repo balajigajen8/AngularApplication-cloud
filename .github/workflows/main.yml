@@ -24,7 +24,7 @@ jobs:
         sudo apt-get install -y python3-pip
         pip3 install --upgrade pip
         pip3 install awscli --upgrade --user
-        sudo apt-get install -y eb
+        pip3 install awsebcli --upgrade --user
         
     - name: Configure AWS credentials
       run: aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} && aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} && aws configure set region ${{ secrets.AWS_REGION }}
