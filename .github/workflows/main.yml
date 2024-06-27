@@ -3,7 +3,7 @@ name: Deploy to AWS Elastic Beanstalk
 on:
   push:
     branches:
-      - main  # Change this to your main branch name if different
+      - main  # Adjust this to your main branch name if different
 
 jobs:
   deploy:
@@ -18,13 +18,12 @@ jobs:
       with:
         node-version: '18'
         
-    - name: Install AWS CLI
+    - name: Install AWS CLI and EB CLI
       run: |
         sudo apt-get update
         sudo apt-get install -y python3-pip
         pip3 install --upgrade pip
-        pip3 install awscli
-        sudo apt-get install -y awscli
+        pip3 install awscli --upgrade --user
         sudo apt-get install -y eb
         
     - name: Configure AWS credentials
