@@ -32,9 +32,11 @@ jobs:
       run: npm install -g @angular/cli
       
     - name: Install dependencies
+      working-directory: ./hello-world-app/
       run: npm install
       
     - name: Build Angular application
+      working-directory: ./hello-world-app/
       run: ng build --configuration=production
       
     - name: Deploy to Elastic Beanstalk
