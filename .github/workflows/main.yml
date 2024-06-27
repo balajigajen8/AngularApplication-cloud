@@ -18,10 +18,11 @@ jobs:
       with:
         python-version: '3.x'  # Replace with your desired Python version
         
-    - name: Install AWS CLI and EB CLI
+    - name: Clean up previous installations
       run: |
-        sudo apt-get update
-        sudo apt-get install -y python3-pip
+        sudo apt-get remove -y awscli
+        sudo apt-get autoremove -y
+        pip3 uninstall -y awscli awsebcli
         pip3 install --upgrade pip
         pip3 install awscli --upgrade --user
         pip3 install awsebcli --upgrade --user
@@ -45,4 +46,3 @@ jobs:
       
     - name: Deploy to Elastic Beanstalk
       run: eb deploy --profile default
-
